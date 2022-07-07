@@ -1,6 +1,6 @@
-import react from "react"
-import Button from "../UI/HeaderCartButton"
+
 import classes from './MealItems.module.css'
+import Mealform from "./Mealform"
 
 const MealItem = (props) => {
     const amount = `$ ${props.price}`
@@ -10,6 +10,9 @@ const MealItem = (props) => {
                 <h3>{props.name}</h3>
                 <div className={classes.description}>{props.description}</div>
                 <div className={classes.price}>{amount}</div>
+            </div>
+            <div>
+                <Mealform />
             </div>
         </li>
     )
