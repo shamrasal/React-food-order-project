@@ -4,7 +4,7 @@ import classes from './Model.module.css'
 
 
 const Backdrop = (props) => {
-    return <div className={classes.backdrop}></div>
+    return <div onClick={props.onClose} className={classes.backdrop}></div>
 }
 
 const ModelOverlay = (props) => {
@@ -20,7 +20,7 @@ const placeCart = document.getElementById('overlay')
 const Model = (props) => {
     return (
         <React.Fragment>
-            {ReactDOM.createPortal(<Backdrop></Backdrop>, placeCart)}
+            {ReactDOM.createPortal(<Backdrop onClose={props.onClick}></Backdrop>, placeCart)}
             {ReactDOM.createPortal(<ModelOverlay>{props.children}</ModelOverlay>, placeCart)}
         </React.Fragment>
     )

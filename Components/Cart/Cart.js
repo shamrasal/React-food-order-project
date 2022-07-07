@@ -1,8 +1,6 @@
 import classes from './Cart.module.css'
-import Card from '../UI/Card'
-import MealItem from '../Meals/MealItem'
 import Model from '../UI/Model'
-const Cart = () => {
+const Cart = (props) => {
     const cartitem = <ul className={classes['cart-items']}> {[{
         id: 'cart1',
         name: 'sushi',
@@ -14,14 +12,14 @@ const Cart = () => {
     //     return <li>{cart.name} {cart.amount}</li>
     // })
     return (
-        <Model>
+        <Model onClick={props.onHideCart}>
             {cartitem}
             <div className={classes.total}>
                 <span>total amount</span>
                 <span>35.40</span>
             </div>
             <div className={classes.actions}>
-                <button className={classes['alt-button']}>close</button>
+                <button onClick={props.onHideCart} className={classes['alt-button']}>close</button>
                 <button className={classes.button}>order</button>
             </div>
         </Model>
