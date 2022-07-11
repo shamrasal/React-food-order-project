@@ -6,7 +6,11 @@ import CartContext from "../Store/Cart-context"
 
 const Button = (props) => {
     const chartCtx = useContext(CartContext)
-    const totalNumberOfItems = chartCtx.item.length
+    let totalNumberOfItems = 0
+    chartCtx.item.forEach((item) => {
+        totalNumberOfItems = totalNumberOfItems + +item.quantity
+    })
+    // const totalNumberOfItems = chartCtx.item.length
     return (
         <button onClick={props.onClick} className={classes.button}>
             <span className={classes.icon}>

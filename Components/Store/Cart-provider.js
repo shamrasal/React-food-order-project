@@ -8,22 +8,27 @@ const CartProvider = (props) => {
             return [...prevItems, item]
         })
         // cartContext.item.push(item)
-        console.log(items)
-
     }
 
     const removeItemHandler = (id) => {
 
     }
 
+    const updateHandler = (item) => {
+        setItems((prevItems) => {
+            return [...prevItems]
+        })
+    }
+
     const cartContext = {
         item: items,
         addItem: addItemHandler,
-        removeItem: removeItemHandler
+        removeItem: removeItemHandler,
+        updateItem: updateHandler
     }
     return (
         <CartContext.Provider value={cartContext}>
-            {console.log(cartContext)}
+            {console.log(cartContext.item)}
             {props.children}
         </CartContext.Provider>
     )

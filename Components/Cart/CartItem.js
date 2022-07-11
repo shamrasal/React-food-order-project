@@ -1,10 +1,13 @@
+
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
+  const cantRemove = props.amount < 1
+
 
   return (
-    <li className={classes['cart-item']}>
+    <li key={props.id} className={classes['cart-item']}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -13,8 +16,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button>−</button>
-        <button>+</button>
+        {!cantRemove && <button onClick={props.onRemove}>−</button>}
+        <button onClick={props.onAdd}>+</button>
       </div>
     </li>
   );
